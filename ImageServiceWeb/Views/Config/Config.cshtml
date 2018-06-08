@@ -1,0 +1,53 @@
+﻿@model ImageServiceWeb.Models.ConfigModel
+
+@{
+    ViewBag.Title = "Config";
+}
+
+<h2>Config</h2>
+
+<table class="table" style="font-size:125%;">
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.OutputDir)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.OutputDir)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.SourceName)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.SourceName)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.LogName)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.LogName)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.ThumbnailSize)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.ThumbnailSize)
+        </td>
+        <td></td>
+    </tr>
+</table>
+
+<h2>Handlers</h2>
+@foreach (var item in Model.Handlers)
+{
+    <ul>
+        <il style="font-size:125%;">
+            @Html.ActionLink(@item, "DeleteHandler", new { handlerPath = item })
+        </il>
+    </ul>
+}

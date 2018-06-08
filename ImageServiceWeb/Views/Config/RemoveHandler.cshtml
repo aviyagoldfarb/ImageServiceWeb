@@ -1,0 +1,26 @@
+﻿@model ImageServiceWeb.Models.ConfigModel
+@{
+    ViewBag.Title = "RemoveHandler";
+}
+
+<h2>Remove Handler</h2>
+<br/>
+<p style="font-size:100%;">Are you sure you want to remove this handler?</p>
+<br/>
+
+<button type="button" id="btnRemove" style="margin:10px">REMOVE</button>
+<button type="button" id="btnCancel" style="margin:10px">CANCEL</button>
+
+<script>
+    $("#btnRemove").click(function () {
+        $.get("@Url.Action("SendRequestForRemovingHandler")", function () {
+            window.location.href = "Config";
+        });
+    });
+
+    $("#btnCancel").click(function () {
+        $.get("@Url.Action("Cancel")", function () {
+            window.location.href = "Config";
+        });
+    });
+</script>

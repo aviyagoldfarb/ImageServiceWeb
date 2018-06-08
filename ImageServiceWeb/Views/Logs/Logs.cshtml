@@ -1,0 +1,53 @@
+﻿@model ImageServiceWeb.Models.LogsModel
+
+@{
+    ViewBag.Title = "Logs";
+}
+
+<h2>Logs</h2>
+<br />
+<p>Enter Logs Type: (INFO/ WARNING/ FAIL)</p>
+<input type="text" id="typeID" size="10" />
+<input type="button" id="btnSelect" value="Select" />
+<ul id="lstProducts"></ul>
+<br />
+<table class="table" style="font-size:125%;">
+    @foreach (var item in Model.Logs)
+    {
+        if (Model.Type == "ALL")
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Type)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Message)
+                </td>
+            </tr>
+        }
+        else
+        {
+            if (item.Type == Model.Type)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Type)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Message)
+                    </td>
+                </tr>
+            }
+        }
+    }
+</table>
+<script>
+    $("#btnSelect").click(function () {
+        var input = {
+            type: $("#typeID").val()
+        };
+        $.post("@Url.Action("SelectType")", input, function () {
+            window.location.href = "Logs";
+        });
+    });
+</script>
