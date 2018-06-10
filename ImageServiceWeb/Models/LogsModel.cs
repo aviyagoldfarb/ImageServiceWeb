@@ -17,9 +17,6 @@ namespace ImageServiceWeb.Models
 {
     public class LogsModel
     {
-        //INotifyPropertyChanged implementation: 
-        //public event PropertyChangedEventHandler PropertyChanged;
-
         private ITcpClient tcpClient;
         private volatile Boolean stop;
         private static int logMapIndex = 1;

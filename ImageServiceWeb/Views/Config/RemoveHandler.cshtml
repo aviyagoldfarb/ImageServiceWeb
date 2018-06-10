@@ -14,12 +14,18 @@
 <script>
     $("#btnRemove").click(function () {
         $.get("@Url.Action("SendRequestForRemovingHandler")", function () {
+            $('#btnRemove').prop('disabled', true);
+            $('#btnCancel').prop('disabled', true);
             window.location.href = "Config";
+            
+            
         });
     });
 
     $("#btnCancel").click(function () {
         $.get("@Url.Action("Cancel")", function () {
+            $('#btnRemove').prop('disabled', true);
+            $('#btnCancel').prop('disabled', true);
             window.location.href = "Config";
         });
     });

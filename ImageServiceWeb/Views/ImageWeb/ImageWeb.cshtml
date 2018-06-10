@@ -5,4 +5,46 @@
 }
 
 <h2>Image Web</h2>
-Welcome to ImageService Web Application!
+<br />
+@{ var status = "";
+    if (Model.IsConnected)
+    {
+        status = "Start";
+    }
+    else
+    {
+        status = "Stop";
+    }
+}
+<p style="font-size:150%;">Service Status: @status</p>
+<br />
+<p style="font-size:150%;">Current Number Of Photos: @Model.PhotosNum</p>
+<br />
+<table class="table" style="font-size:125%;">
+    <tr>
+        <th>
+            First Name
+        </th>
+        <th>
+            Last Name
+        </th>
+        <th>
+            ID
+        </th>
+    </tr>
+    @foreach (var item in Model.StudentsInformation)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.firstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.id)
+        </td>
+    </tr>
+    }
+</table>
+
