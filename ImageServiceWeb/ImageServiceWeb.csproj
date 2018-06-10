@@ -189,6 +189,8 @@
     <Compile Include="Infrastructure\Enums\CommandEnum.cs" />
     <Compile Include="Infrastructure\LogMessage.cs" />
     <Compile Include="Infrastructure\MessageEventArgs.cs" />
+    <Compile Include="Models\OutputDirModel.cs" />
+    <Compile Include="Infrastructure\PhotoInfo.cs" />
     <Compile Include="Infrastructure\StudentsInfo.cs" />
     <Compile Include="Models\ImageWebModel.cs" />
     <Compile Include="Models\LogsModel.cs" />
@@ -209,7 +211,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\OutputDir\" />
+    <Folder Include="OutputDir\" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />

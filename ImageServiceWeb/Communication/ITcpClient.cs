@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ImageServiceWeb.Communication
 {
-    interface ITcpClient
+    public interface ITcpClient
     {
         event EventHandler<MessageEventArgs> ConfigRecieved;
         event EventHandler<MessageEventArgs> LogUdated;

@@ -53,6 +53,7 @@ namespace ImageServiceWeb.Communication
                 {
                     instance = new ServiceTcpClient();
                 }
+                //Thread.Sleep(1000);
                 return instance;
             }
         }

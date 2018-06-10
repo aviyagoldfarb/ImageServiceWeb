@@ -12,11 +12,16 @@ namespace ImageServiceWeb.Models
 {
     public class ImageWebModel
     {
-        private ITcpClient tcpClient;
+        //private ITcpClient tcpClient;
+        private OutputDirModel outputDirModel;
 
         [Required]
         [Display(Name = "Is Connected")]
         public bool IsConnected { get; set; }
+
+        [Required]
+        [Display(Name = "Output Dir: ")]
+        public string OutputDir { get; set; }
 
         [Required]
         [Display(Name = "Photos Number")]
@@ -31,10 +36,16 @@ namespace ImageServiceWeb.Models
         /// </summary>
         public ImageWebModel()
         {
-            this.tcpClient = ServiceTcpClient.Instance;
-            IsConnected = this.tcpClient.Connected();
+            //this.tcpClient = ServiceTcpClient.Instance;
+            this.outputDirModel = OutputDirModel.Instance;
 
-            int filesCounter = Directory.GetFiles(HttpContext.Current.Server.MapPath("~/App_Data/OutputDir"), "*", SearchOption.AllDirectories).Length;
+            //IsConnected = this.tcpClient.Connected();
+
+            IsConnected = this.outputDirModel.GetTcpClient().Connected();
+
+            OutputDir = this.outputDirModel.OutputDir;
+
+            int filesCounter = Directory.GetFiles(OutputDir, "*", SearchOption.AllDirectories).Length;
             PhotosNum = (filesCounter / 2).ToString();
 
             StudentsInformation = new List<StudentsInfo>();

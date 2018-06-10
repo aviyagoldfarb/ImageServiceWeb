@@ -7,15 +7,15 @@ namespace ImageServiceWeb.Infrastructure
 {
     public class StudentsInfo
     {
-        public string firstName;
-        public string lastName;
-        public string id;
+        public string FirstName { get; private set; }
+        public string LastName { get; private set; }
+        public string ID { get; private set; }
 
         public StudentsInfo(string firstName, string lastName, string id)
         {
-            this.firstName = firstName;
-            this.lastName = lastName;
-            this.id = id;
+            this.FirstName = firstName;
+            this.LastName = lastName;
+            this.ID = id;
         }
     }
 }

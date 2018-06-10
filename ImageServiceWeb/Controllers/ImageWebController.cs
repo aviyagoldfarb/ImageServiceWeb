@@ -9,7 +9,7 @@ namespace ImageServiceWeb.Controllers
 {
     public class ImageWebController : Controller
     {
-        private ImageWebModel imageWebModel/* = new ImageWebModel()*/;
+        private ImageWebModel imageWebModel;
 
         public ImageWebController()
         {

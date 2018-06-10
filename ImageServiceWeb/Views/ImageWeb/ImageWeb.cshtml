@@ -4,7 +4,7 @@
     ViewBag.Title = "ImageWeb";
 }
 
-<h2>Image Web</h2>
+<h2>Welcome To Image Web Application</h2>
 <br />
 @{ var status = "";
     if (Model.IsConnected)
@@ -36,13 +36,13 @@
     {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.firstName)
+            @Html.DisplayFor(modelItem => item.FirstName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.lastName)
+            @Html.DisplayFor(modelItem => item.LastName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.id)
+            @Html.DisplayFor(modelItem => item.ID)
         </td>
     </tr>
     }

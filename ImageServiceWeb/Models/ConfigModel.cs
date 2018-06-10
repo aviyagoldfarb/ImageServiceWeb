@@ -49,11 +49,10 @@ namespace ImageServiceWeb.Models
             this.stop = false;
             this.tcpClient.ConfigRecieved += OnConfigRecieved;
             this.tcpClient.RemovedHandler += OnRemovedHandler;
-            //handlers = new ObservableCollection<string>();
             Handlers = new List<string>();
             this.Start();
         }
-        
+
         /// <summary>
         /// closing the connection with the service.
         /// </summary>
