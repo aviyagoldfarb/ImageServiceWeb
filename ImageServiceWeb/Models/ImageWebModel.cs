@@ -44,10 +44,10 @@ namespace ImageServiceWeb.Models
             IsConnected = this.outputDirModel.GetTcpClient().Connected();
 
             OutputDir = this.outputDirModel.OutputDir;
-
+            /*
             int filesCounter = Directory.GetFiles(OutputDir, "*", SearchOption.AllDirectories).Length;
             PhotosNum = (filesCounter / 2).ToString();
-
+            */
             StudentsInformation = new List<StudentsInfo>();
             string[] studentsInfoLines = File.ReadAllLines(HttpContext.Current.Server.MapPath("~/App_Data/StudentsInfo.txt"));
             foreach (string line in studentsInfoLines)
@@ -55,6 +55,12 @@ namespace ImageServiceWeb.Models
                 string[] info = line.Split(' ');
                 StudentsInformation.Add(new StudentsInfo(info[0], info[1], info[2]));
             }
+        }
+
+        public void GetPhotosNum()
+        {
+            int filesCounter = Directory.GetFiles(OutputDir, "*", SearchOption.AllDirectories).Length;
+            PhotosNum = (filesCounter / 2).ToString();
         }
     }
 }

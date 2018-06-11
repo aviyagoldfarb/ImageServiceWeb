@@ -38,7 +38,7 @@ namespace ImageServiceWeb.Communication
 
             }
             this.Read();
-            //Thread.Sleep(100);
+            //Thread.Sleep(1000);
         }
 
         private static ServiceTcpClient instance;
@@ -53,7 +53,6 @@ namespace ImageServiceWeb.Communication
                 {
                     instance = new ServiceTcpClient();
                 }
-                //Thread.Sleep(1000);
                 return instance;
             }
         }
@@ -94,24 +93,31 @@ namespace ImageServiceWeb.Communication
         public void Read()
         {
             new Task(() =>
-            {
-                NetworkStream stream = client.GetStream();
-                BinaryReader reader = new BinaryReader(stream);
+            { 
+                try
                 {
-                    while (true)
+                    NetworkStream stream = client.GetStream();
+                    BinaryReader reader = new BinaryReader(stream);
                     {
-                        try
+                        while (true)
                         {
-                            // Get result from server
-                            string result = reader.ReadString();
-                            ProcessAndSend(result);
+                            try
+                            {
+                                // Get result from server
+                                string result = reader.ReadString();
+                                ProcessAndSend(result);
+                            }
+                            catch (Exception)
+                            {
+                                break;
+                            }
+
                         }
-                        catch (Exception)
-                        {
-                            break;
-                        }
-                        
                     }
+                }
+                catch (Exception)
+                {
+
                 }
             }).Start();
         }

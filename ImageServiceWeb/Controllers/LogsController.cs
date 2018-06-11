@@ -14,8 +14,7 @@ namespace ImageServiceWeb.Controllers
 
         public LogsController()
         {
-            Thread.Sleep(1000);
-            //logsModel = new LogsModel();
+            
         }
 
         // GET: Logs

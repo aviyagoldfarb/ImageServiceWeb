@@ -16,8 +16,7 @@ namespace ImageServiceWeb.Controllers
 
         public ConfigController()
         {
-            Thread.Sleep(1000);
-            //configModel = new ConfigModel();
+            
         }
 
         public ActionResult Config()

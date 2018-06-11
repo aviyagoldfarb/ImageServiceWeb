@@ -39,6 +39,7 @@ namespace ImageServiceWeb.Models
             Logs = new List<LogMessage>();
             Type = "ALL";
             this.Start();
+            Thread.Sleep(1000);
         }
         
         /// <summary>

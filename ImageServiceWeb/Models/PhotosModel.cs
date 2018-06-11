@@ -27,16 +27,35 @@ namespace ImageServiceWeb.Models
         {
             this.outputDirModel = OutputDirModel.Instance;
             OutputDir = this.outputDirModel.OutputDir;
-
-            string[] thumbnailPhotosPaths = Directory.GetFiles(OutputDir + "\\Thumbnails", "*", SearchOption.AllDirectories);
-
             PhotosInformation = new List<PhotoInfo>();
+        }
 
-            foreach (string photoPath in thumbnailPhotosPaths)
+        public void GetPhotos()
+        {
+            PhotosInformation.Clear();
+            string[] extensions = { ".jpg", ".png", ".gif", ".bmp" };
+            try
             {
-                PhotosInformation.Add(new PhotoInfo(photoPath));
+                string[] filesPathsList = Directory.GetFiles(OutputDir + "\\Thumbnails", "*", SearchOption.AllDirectories);
+                foreach (string filePath in filesPathsList)
+                {
+                    if (extensions.Contains(Path.GetExtension(filePath.ToLower())))
+                    {
+                        PhotosInformation.Add(new PhotoInfo(filePath));
+                    }
+                }
+            }
+            catch (Exception)
+            {
+
             }
         }
-        
+
+        public void DeletePhoto(string fullSizePath, string thumbnailPath)
+        {
+            File.Delete(fullSizePath);
+            File.Delete(thumbnailPath);
+        }
+
     }
 }

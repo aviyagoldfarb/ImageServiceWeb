@@ -51,6 +51,7 @@ namespace ImageServiceWeb.Models
             this.tcpClient.RemovedHandler += OnRemovedHandler;
             Handlers = new List<string>();
             this.Start();
+            Thread.Sleep(1000);
         }
 
         /// <summary>

@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "ViewPhoto";
+}
+
+<h2>@ViewBag.PhotoName</h2>
+
+<table id="t01">
+    <tr>
+        <td><strong> Date:</strong></td>
+        <td>@ViewBag.PhotoDate</td>
+    </tr>
+</table>
+<br>
+<a href="@Url.Action("DeletePhotoConfirm", new { thumbnailPath = @ViewBag.ThumbnailPath, fullSizePath = @ViewBag.FullSizePath, relativeThumbnailPath = @ViewBag.RelativeThumbnailPath, relativePath = @ViewBag.RelativePath, photoName = @ViewBag.PhotoName, photoDate = @ViewBag.PhotoDate })" id="btnDelete" class="btn btn-danger" role="button">Delete</a>
+<input type="button" value="Go Back" onclick='goBack()' class="btn btn" />
+<br>
+<br>
+<img src="@ViewBag.RelativePath" alt="">
+
+
+<script>
+    function goBack() {
+        document.location = 'Photos'
+    }
+</script>

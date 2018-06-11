@@ -9,16 +9,17 @@ namespace ImageServiceWeb.Controllers
 {
     public class ImageWebController : Controller
     {
-        private ImageWebModel imageWebModel;
+        private static ImageWebModel imageWebModel = new ImageWebModel();
 
         public ImageWebController()
         {
-            imageWebModel = new ImageWebModel();
+            //imageWebModel = new ImageWebModel();
         }
 
         // GET: ImageWeb
         public ActionResult ImageWeb()
         {
+            imageWebModel.GetPhotosNum();
             return View(imageWebModel);
         }
     }

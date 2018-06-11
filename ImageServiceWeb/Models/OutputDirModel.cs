@@ -25,6 +25,7 @@ namespace ImageServiceWeb.Models
             this.stop = false;
             this.tcpClient.ConfigRecieved += OnConfigRecieved;
             this.Start();
+            Thread.Sleep(1000);
         }
 
         private static OutputDirModel instance;
@@ -39,7 +40,6 @@ namespace ImageServiceWeb.Models
                 {
                     instance = new OutputDirModel();
                 }
-                Thread.Sleep(1000);
                 return instance;
             }
         }
