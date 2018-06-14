@@ -34,6 +34,7 @@ namespace ImageServiceWeb.Controllers
         public ActionResult SendRequestForRemovingHandler()
         {
             configModel.RemoveHandler(handlerToRemove);
+            Thread.Sleep(1000);
             return RedirectToAction("Config");
         }
 

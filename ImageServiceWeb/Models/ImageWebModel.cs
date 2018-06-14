@@ -59,8 +59,13 @@ namespace ImageServiceWeb.Models
 
         public void GetPhotosNum()
         {
-            int filesCounter = Directory.GetFiles(OutputDir, "*", SearchOption.AllDirectories).Length;
-            PhotosNum = (filesCounter / 2).ToString();
+            if (Directory.Exists(OutputDir))
+            {
+                int filesCounter = Directory.GetFiles(OutputDir, "*", SearchOption.AllDirectories).Length;
+                PhotosNum = (filesCounter / 2).ToString();
+            }
+            else
+                PhotosNum = "0";
         }
     }
 }
